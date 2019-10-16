@@ -56,27 +56,18 @@ public class MainActivity extends AppCompatActivity {
         String dateString = sdf.format(date);
         set_date.setText(dateString);
 
-        //Creating an object of our api interface
         ApiService api = RetroClient.getApiService();
 
-        /**
-         * Calling JSON
-         */
         Call<NoteList> call = api.getMyJSON();
 
-        /**
-         * Enqueue Callback will be call when get response...
-         */
         call.enqueue(new Callback<NoteList>() {
             @Override
             public void onResponse(Call<NoteList> call, Response<NoteList> response) {
-                //Dismiss Dialog
+
                 pDialog.dismiss();
 
                 if (response.isSuccessful()) {
-                    /**
-                     * Got Successfully
-                     */
+
                     noteList = response.body().getNote();
 
                     recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
