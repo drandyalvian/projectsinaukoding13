@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("sinaukoding13/db")
+    @GET("dbsinaukoding13/db")
     Call<NoteList> getMyJSON();
 }
